@@ -1,0 +1,71 @@
+{% extends "base.html" %} 
+
+{% block page_title %} 
+Ana sehife 
+{% endblock page_title %} 
+
+{% block body %}
+
+<div class="container">  
+    <h3 class="basliq">Bazada olan Portfoliolar</h3>
+    <hr>
+    <div class="row">
+    {% for port in portfolio %} 
+        <div class="col-6">
+            <div class="card " style="width: 100%"> 
+                <div class="card-body">
+                    <table class="table"> 
+                        <tbody>
+                            <tr>
+                                <th scope="row">Adı</th>
+                                <td>{{port.first_name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Soyadı</th>
+                                <td>{{port.last_name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ata adı</th>
+                                <td>{{port.father_name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Yaşı</th>
+                                <td>{{port.age}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Yaşadığı şəhər</th>
+                                <td>{{port.city}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email adresi</th>
+                                <td>{{port.email}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">İşi</th>
+                                <td>{{port.job}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Vezifesi</th>
+                                <td>{{port.position}}</td>
+                            </tr> 
+                            <tr>
+                                <th scope="row">Haqqında məlumat</th>
+                                <td>{{port.biography}}</td>
+                            </tr> 
+                            <tr>
+                                <th scope="row">Bacarıqları</th>
+                                <td>{{port.skills}}</td>
+                            </tr> 
+                        </tbody>
+                      </table>
+                      <div class="btn_add">
+                        <a href="{% url 'portfolio-detail' port.id %}" class="btn btn-primary">Düzəliş et</a>
+                        <a href="{% url 'delete' port.id %}" class="btn btn-danger">Sil</a>
+                      </div> 
+                </div>
+              </div>
+        </div>
+    {% endfor %}
+</div> 
+</div>
+{% endblock body %}

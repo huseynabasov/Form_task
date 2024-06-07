@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Ana sehife
+{% endblock page_title %}
+
+{% block body %}
+
+<div class="container">
+    <h3 class="basliq">Bazada olan Portfoliolar</h3>
+    <hr>
+    <div class="card " style="width: 100%">
+        <div class="card-body">
+            {% csrf_token %}
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Adı</th>
+                        <td>{{portfolio.first_name}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Soyadı</th>
+                        <td>{{portfolio.last_name}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ata adı</th>
+                        <td>{{portfolio.father_name}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Yaşı</th>
+                        <td>{{portfolio.age}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Yaşadığı şəhər</th>
+                        <td>{{portfolio.city}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email adresi</th>
+                        <td>{{portfolio.email}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">İşi</th>
+                        <td>{{portfolio.job}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Vezifesi</th>
+                        <td>{{portfolio.position}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Haqqında məlumat</th>
+                        <td>{{portfolio.biography}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bacarıqları</th>
+                        <td>{{portfolio.skills}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="btn_add">
+                <a href="{% url 'update' portfolio.id %}" class="btn btn-primary">Guncelle</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
